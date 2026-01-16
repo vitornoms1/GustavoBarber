@@ -7,7 +7,6 @@ const Footer = () => {
     <footer id="contato" className="bg-[#050505] pt-20 pb-10 px-4 border-t border-[#c5a47e]/10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
         
-        {/* Informações de Contato */}
         <div className="space-y-6">
           <h3 className="text-[#c5a47e] text-2xl font-bold mb-4">Barbearia do Gustavo</h3>
           <p className="text-gray-400 flex items-center gap-3">
@@ -55,7 +54,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Mapa Real Incorporado */}
         <div className="rounded-xl overflow-hidden h-64 border border-white/10 grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.494931869805!2d-51.16567049718329!3d-29.84999720048546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95196f1443bcf8ef%3A0x3d6649d7088da382!2sBarbearia%20do%20Gustavo!5e0!3m2!1spt-BR!2sbr!4v1768566164239!5m2!1spt-BR!2sbr" 

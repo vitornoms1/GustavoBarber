@@ -26,7 +26,6 @@ const Navbar = () => {
     <nav className={`fixed w-full z-[100] transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         
-        {/* Logo - Clicável para voltar ao topo */}
         <a href="#" className="flex items-center gap-2 group cursor-pointer">
           <div className="p-2 border border-[#c5a47e] rounded-lg group-hover:bg-[#c5a47e] transition-colors">
             <Scissors size={20} className="text-[#c5a47e] group-hover:text-black" />
@@ -36,7 +35,6 @@ const Navbar = () => {
           </span>
         </a>
 
-        {/* Links Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a 

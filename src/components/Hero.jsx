@@ -59,7 +59,6 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col md:flex-row gap-4 justify-center">
-          {/* BOTÃO AGENDAR ATUALIZADO */}
           <a 
             href={whatsappUrl}
             target="_blank"
