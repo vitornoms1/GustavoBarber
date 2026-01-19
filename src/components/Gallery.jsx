@@ -34,22 +34,24 @@ const Gallery = () => {
   };
 
   return (
-    <section id="galeria" className="py-16 md:py-24 bg-[#0a0a0a] px-6">
+    <section id="galeria" className="py-16 md:py-24 bg-[#0a0a0a] px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-[#c5a47e] text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-2">Nossa Arte</h2>
-        <p className="text-3xl md:text-5xl font-bold text-white mb-12 text-center">Galeria da Barbearia</p>
+        <p className="text-3xl md:text-5xl font-bold text-white mb-12">Galeria da Barbearia</p>
 
-        <div className="relative flex items-center justify-center mx-auto max-w-full">
+        {/* Esse container agora limita onde as setas podem ir */}
+        <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[400px]">
           
-          {/* Seta Esquerda */}
+          {/* Seta Esquerda - Agora ancorada ao container da imagem */}
           <button
             onClick={prevSlide} 
-            className="absolute -left-6 sm:-left-10 md:-left-20 z-40 p-2 text-[#c5a47e] hover:scale-110 transition-transform"
+            className="absolute -left-12 md:-left-16 top-1/2 -translate-y-1/2 z-40 p-2 text-[#c5a47e] hover:scale-110 transition-transform"
           >
             <ChevronLeft size={44} strokeWidth={1} />
           </button>
 
-          <div className="relative w-full max-w-[320px] sm:max-w-[400px] aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
+          {/* Área da Imagem */}
+          <div className="relative w-full aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 shadow-2xl">
             <AnimatePresence mode="wait">
               <motion.img
                 key={currentIndex}
@@ -64,15 +66,16 @@ const Gallery = () => {
             </AnimatePresence>
           </div>
 
-          {/* Seta Direita */}
+          {/* Seta Direita - Agora ancorada ao container da imagem */}
           <button 
             onClick={nextSlide} 
-            className="absolute -right-6 sm:-right-10 md:-right-20 z-40 p-2 text-[#c5a47e] hover:scale-110 transition-transform"
+            className="absolute -right-12 md:-right-16 top-1/2 -translate-y-1/2 z-40 p-2 text-[#c5a47e] hover:scale-110 transition-transform"
           >
             <ChevronRight size={44} strokeWidth={1} />
           </button>
         </div>
 
+        {/* Indicadores (Dots) */}
         <div className="flex justify-center gap-2 mt-8">
           {images.map((_, index) => (
             <button
