@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Scissors, Calendar, MapPin } from 'lucide-react';
 
-// Simulação simplificada do componente SplitText do React Bits
 const SplitText = ({ text }) => {
   return (
     <span className="inline-block">
@@ -22,7 +21,6 @@ const SplitText = ({ text }) => {
 };
 
 const Hero = () => {
-  // Configuração do link do WhatsApp
   const phoneNumber = "5551997043829";
   const message = encodeURIComponent("Olá Gustavo! Gostaria de agendar um horário.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
@@ -38,42 +36,43 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative z-20 text-center px-4">
+      <div className="relative z-20 text-center px-6"> {/* Aumentado padding lateral */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           className="flex justify-center mb-6"
         >
-          <div className="p-3 border-2 border-[#c5a47e] rounded-lg group-hover:bg-[#c5a47e] transition-colors">
-            <Scissors size={40} className="text-[#c5a47e]" />
+          <div className="p-2 md:p-3 border-2 border-[#c5a47e] rounded-lg">
+            <Scissors size={32} className="text-[#c5a47e] md:w-10 md:h-10" />
           </div>
         </motion.div>
 
-        <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 tracking-tighter">
+        {/* Ajuste de escala do título para não quebrar feio no mobile */}
+        <h1 className="text-2xl sm:text-4xl md:text-7xl font-bold text-white mb-4 tracking-tighter leading-tight">
           <SplitText text="BARBEARIA DO GUSTAVO" />
         </h1>
         
-        <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+        <p className="text-gray-300 text-base md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
           Onde a tradição encontra o estilo moderno. Agende seu horário e viva a experiência premium.
         </p>
 
-        <div className="flex flex-col md:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a 
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#c5a47e] hover:bg-[#b3936d] text-black font-bold py-4 px-8 rounded-md transition-all flex items-center justify-center gap-2"
+            className="w-full sm:w-auto bg-[#c5a47e] hover:bg-[#b3936d] text-black font-bold py-4 px-8 rounded-md transition-all flex items-center justify-center gap-2 text-sm md:text-base"
           >
-            <Calendar size={20} />
+            <Calendar size={18} />
             AGENDAR VIA WHATSAPP
           </a>
           
           <a 
             href="#contato"
-            className="bg-transparent border border-white/30 hover:border-white text-white py-4 px-8 rounded-md transition-all flex items-center justify-center gap-2"
+            className="w-full sm:w-auto bg-transparent border border-white/30 hover:border-white text-white py-4 px-8 rounded-md transition-all flex items-center justify-center gap-2 text-sm md:text-base"
           >
-            <MapPin size={20} />
+            <MapPin size={18} />
             COMO CHEGAR
           </a>
         </div>
@@ -82,10 +81,10 @@ const Hero = () => {
       <motion.div 
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 text-sm flex flex-col items-center gap-2"
+        className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 text-white/50 text-xs md:text-sm flex flex-col items-center gap-2"
       >
         <span>Role para descobrir</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-[#c5a47e] to-transparent" />
+        <div className="w-[1px] h-8 md:h-12 bg-gradient-to-b from-[#c5a47e] to-transparent" />
       </motion.div>
     </section>
   );
