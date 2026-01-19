@@ -34,7 +34,6 @@ const Services = () => {
           </p>
         </motion.div>
         
-        {/* Gap reduzido para mobile para não espalhar demais os cards */}
         <motion.div 
           layout
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10"

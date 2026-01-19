@@ -16,7 +16,6 @@ const images = [
 const Gallery = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // Define quantas fotos mostrar inicialmente
   const displayedImages = isExpanded ? images : images.slice(0, 4);
 
   return (

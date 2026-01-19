@@ -36,7 +36,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative z-20 text-center px-6"> {/* Aumentado padding lateral */}
+      <div className="relative z-20 text-center px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -48,7 +48,6 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Ajuste de escala do título para não quebrar feio no mobile */}
         <h1 className="text-2xl sm:text-4xl md:text-7xl font-bold text-white mb-4 tracking-tighter leading-tight">
           <SplitText text="BARBEARIA DO GUSTAVO" />
         </h1>
