@@ -50,7 +50,7 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tighter">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 tracking-tighter">
           <SplitText text="BARBEARIA DO GUSTAVO" />
         </h1>
         

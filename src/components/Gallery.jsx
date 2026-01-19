@@ -63,7 +63,7 @@ const Gallery = () => {
             {isExpanded ? (
               <> <Minus size={20} /> VER MENOS </>
             ) : (
-              <> <Plus size={20} className="group-hover:rotate-90 transition-transform" /> VER GALERIA COMPLETA </>
+              <> <Plus size={20} className="group-hover:rotate-90 transition-transform" /> VER MAIS </>
             )}
           </button>
         </div>
