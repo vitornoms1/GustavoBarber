@@ -21,7 +21,7 @@ const About = () => {
           <div className="relative overflow-hidden rounded-xl shadow-2xl">
             <img 
               src={gustavoImg} 
-              alt="Gustavo Kuhn - Barbeiro" 
+              alt="Gustavo Raniel - Barbeiro" 
               className="w-full max-w-[350px] md:max-w-full h-[450px] md:h-[550px] object-cover grayscale hover:grayscale-0 transition-all duration-700" 
             />
           </div>
