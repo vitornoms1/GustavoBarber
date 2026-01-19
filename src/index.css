@@ -2,4 +2,10 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  @apply bg-[#0a0a0a] text-white;
 }
