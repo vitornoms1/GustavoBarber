@@ -1,70 +1,88 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const images = [
-  "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1621605815841-aa3396568195?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1599351431247-f10b21817021?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1532710093739-9470acff878f?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1974&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1512690196236-0ec1500355f3?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1622286332618-f28020ee5138?q=80&w=2070&auto=format&fit=crop"
-];
+import corte1 from '../assets/corte1.jpeg';
+import corte2 from '../assets/corte2.jpeg';
+import corte3 from '../assets/corte3.jpeg';
+import corte4 from '../assets/corte4.jpeg';
+import corte5 from '../assets/corte5.jpeg';
+import corte6 from '../assets/corte6.jpeg';
+import corte7 from '../assets/corte7.jpeg';
+import corte8 from '../assets/corte8.jpeg';
+import corte9 from '../assets/corte9.jpeg';
+import corte10 from '../assets/corte10.jpeg';
+
+const images = [corte1, corte2, corte3, corte4, corte5, corte6, corte7, corte8, corte9, corte10];
 
 const Gallery = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const displayedImages = isExpanded ? images : images.slice(0, 4);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [currentIndex]);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
 
   return (
-    <section id="galeria" className="py-24 bg-[#0a0a0a] px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-[#c5a47e] font-bold tracking-widest uppercase mb-2">Nossa Arte</h2>
-          <p className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Galeria da Barbearia do Gustavo
-          </p>
+    <section id="galeria" className="py-16 md:py-24 bg-[#0a0a0a] px-6">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-[#c5a47e] text-xs md:text-sm font-bold tracking-[0.3em] uppercase mb-2">Nossa Arte</h2>
+        <p className="text-3xl md:text-5xl font-bold text-white mb-12 text-center">Galeria da Barbearia</p>
+
+        <div className="relative flex items-center justify-center mx-auto max-w-full">
+          
+          {/* Seta Esquerda */}
+          <button
+            onClick={prevSlide} 
+            className="absolute -left-6 sm:-left-10 md:-left-20 z-40 p-2 text-[#c5a47e] hover:scale-110 transition-transform"
+          >
+            <ChevronLeft size={44} strokeWidth={1} />
+          </button>
+
+          <div className="relative w-full max-w-[320px] sm:max-w-[400px] aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 bg-neutral-900">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentIndex}
+                src={images[currentIndex]}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="w-full h-full object-cover" 
+                alt={`Corte ${currentIndex + 1}`}
+              />
+            </AnimatePresence>
+          </div>
+
+          {/* Seta Direita */}
+          <button 
+            onClick={nextSlide} 
+            className="absolute -right-6 sm:-right-10 md:-right-20 z-40 p-2 text-[#c5a47e] hover:scale-110 transition-transform"
+          >
+            <ChevronRight size={44} strokeWidth={1} />
+          </button>
         </div>
 
-        <motion.div 
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          <AnimatePresence mode='popLayout'>
-            {displayedImages.map((src, index) => (
-              <motion.div
-                key={src} 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                whileHover={{ scale: 1.03 }}
-                className="relative aspect-square rounded-lg overflow-hidden border border-white/10 shadow-2xl"
-              >
-                <img 
-                  src={src} 
-                  alt={`Corte Barbearia do Gustavo ${index + 1}`} 
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-
-        <div className="flex justify-center mt-12">
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="group flex items-center gap-2 bg-transparent border-2 border-[#c5a47e] text-[#c5a47e] hover:bg-[#c5a47e] hover:text-black font-bold py-3 px-8 rounded-full transition-all duration-300"
-          >
-            {isExpanded ? (
-              <> <Minus size={20} /> VER MENOS </>
-            ) : (
-              <> <Plus size={20} className="group-hover:rotate-90 transition-transform" /> VER MAIS </>
-            )}
-          </button>
+        <div className="flex justify-center gap-2 mt-8">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`h-1 transition-all rounded-full ${
+                currentIndex === index ? 'bg-[#c5a47e] w-8' : 'bg-gray-800 w-4'
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

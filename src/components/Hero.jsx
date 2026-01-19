@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Scissors, Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
+import logoImg from '../assets/logo.jpeg';
+import bgBarbearia from '../assets/barbearia.jpeg';
 
 const SplitText = ({ text }) => {
   return (
@@ -28,9 +30,9 @@ const Hero = () => {
   return (
     <section className="relative h-screen w-full flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="absolute inset-0 bg-black/70 z-10" />
         <img 
-          src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80" 
+          src={bgBarbearia} 
           alt="Barbearia Background" 
           className="w-full h-full object-cover"
         />
@@ -43,12 +45,10 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="flex justify-center mb-6"
         >
-          <div className="p-2 md:p-3 border-2 border-[#c5a47e] rounded-lg">
-            <Scissors size={32} className="text-[#c5a47e] md:w-10 md:h-10" />
-          </div>
+          <img src={logoImg} alt="Logo" className="w-20 h-20 md:w-32 md:h-32 object-contain" />
         </motion.div>
 
-        <h1 className="text-2xl sm:text-4xl md:text-7xl font-bold text-white mb-4 tracking-tighter leading-tight">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 tracking-tighter leading-tight">
           <SplitText text="BARBEARIA DO GUSTAVO" />
         </h1>
         
@@ -61,7 +61,7 @@ const Hero = () => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-[#c5a47e] hover:bg-[#b3936d] text-black font-bold py-4 px-8 rounded-md transition-all flex items-center justify-center gap-2 text-sm md:text-base"
+            className="w-full sm:w-auto bg-[#c5a47e] hover:bg-[#b3936d] text-black font-bold py-4 px-8 rounded-md transition-all flex items-center justify-center gap-2 text-sm"
           >
             <Calendar size={18} />
             AGENDAR VIA WHATSAPP
@@ -69,7 +69,7 @@ const Hero = () => {
           
           <a 
             href="#contato"
-            className="w-full sm:w-auto bg-transparent border border-white/30 hover:border-white text-white py-4 px-8 rounded-md transition-all flex items-center justify-center gap-2 text-sm md:text-base"
+            className="w-full sm:w-auto bg-transparent border border-white/30 hover:border-white text-white py-4 px-8 rounded-md transition-all flex items-center justify-center gap-2 text-sm"
           >
             <MapPin size={18} />
             COMO CHEGAR
@@ -80,10 +80,10 @@ const Hero = () => {
       <motion.div 
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 text-white/50 text-xs md:text-sm flex flex-col items-center gap-2"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 text-xs flex flex-col items-center gap-2"
       >
         <span>Role para descobrir</span>
-        <div className="w-[1px] h-8 md:h-12 bg-gradient-to-b from-[#c5a47e] to-transparent" />
+        <div className="w-[1px] h-8 bg-gradient-to-b from-[#c5a47e] to-transparent" />
       </motion.div>
     </section>
   );

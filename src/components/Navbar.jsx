@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Scissors, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import logoImg from '../assets/logo.jpeg';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Monitora o scroll para mudar o fundo da navbar
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -17,20 +17,19 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Início', href: '#' },
+    { name: 'Sobre', href: '#sobre' },
     { name: 'Serviços', href: '#servicos' },
     { name: 'Galeria', href: '#galeria' },
     { name: 'Contato', href: '#contato' },
   ];
 
   return (
-    <nav className={`fixed w-full z-[100] transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed w-full z-[100] transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-md py-3 shadow-xl' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         
-        <a href="#" className="flex items-center gap-2 group cursor-pointer">
-          <div className="p-2 border border-[#c5a47e] rounded-lg group-hover:bg-[#c5a47e] transition-colors">
-            <Scissors size={20} className="text-[#c5a47e] group-hover:text-black" />
-          </div>
-          <span className="text-white font-bold tracking-tighter text-xl uppercase">
+        <a href="#" className="flex items-center gap-3 group">
+          <img src={logoImg} alt="Logo" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+          <span className="text-white font-bold tracking-tighter text-lg md:text-xl uppercase">
             BARBEARIA DO <span className="text-[#c5a47e]">GUSTAVO</span>
           </span>
         </a>
@@ -40,7 +39,6 @@ const Navbar = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              // Estilização especial para o link de Contato (o último da lista)
               className={link.name === 'Contato' 
                 ? "bg-[#c5a47e] text-black px-6 py-2 rounded font-bold text-sm hover:bg-[#b3936d] transition-all"
                 : "text-gray-300 hover:text-[#c5a47e] transition-colors text-sm font-medium uppercase tracking-widest"
@@ -51,13 +49,11 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Botão Mobile */}
         <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Menu Mobile */}
       {isMobileMenuOpen && (
         <motion.div 
           initial={{ opacity: 0, y: -20 }}

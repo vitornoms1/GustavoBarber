@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
 const WhatsAppButton = () => {
-  // Número atualizado do Gustavo
   const phoneNumber = "5551997043829"; 
   const message = encodeURIComponent("Olá Gustavo! Gostaria de agendar um horário.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;

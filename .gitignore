@@ -1,4 +1,4 @@
-# Dependências (Nunca envie esta pasta!)
+# Dependências
 node_modules/
 dist/
 dist-ssr/

@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from './components/Hero';
+import About from './components/About';
 import Services from './components/Services';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
@@ -9,10 +10,10 @@ import WhatsAppButton from './components/WhatsAppButton';
 function App() {
   return (
     <main className="bg-[#0a0a0a] min-h-screen">
-
       <NavBar />
-
+      
       <Hero />
+      <About />
       <Services />
       <Gallery />
       <Footer />
